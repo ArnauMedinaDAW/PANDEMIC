@@ -1,0 +1,222 @@
+La ciudad San Francisco está en les coordenades 235,315
+Sus ciudades colindantes son:
+Chicago, que está a una distància de 73
+Los Angeles, que está a una distància de 56
+Manila, que está a una distància de 970
+Tokio, que está a una distància de 1045
+
+La ciudad Chicago está en les coordenades 300,280
+Sus ciudades colindantes son:
+San Francisco, que está a una distància de 73
+Montreal, que está a una distància de 50
+Atlanta, que está a una distància de 44
+Mexico DF, que está a una distància de 105
+Los Angeles, que está a una distància de 79
+
+La ciudad Atlanta está en les coordenades 320,320
+Sus ciudades colindantes son:
+Chicago, que está a una distància de 44
+Miami, que está a una distància de 72
+Washington, que está a una distància de 41
+
+La ciudad Montreal está en les coordenades 350,280
+Sus ciudades colindantes son:
+Chicago, que está a una distància de 50
+Nueva York, que está a una distància de 31
+Washington, que está a una distància de 50
+
+La ciudad Nueva York está en les coordenades 380,290
+Sus ciudades colindantes son:
+Montreal, que está a una distància de 31
+Washington, que está a una distància de 44
+Londres, que está a una distància de 325
+Madrid, que está a una distància de 307
+
+La ciudad Washington está en les coordenades 360,330
+Sus ciudades colindantes son:
+Montreal, que está a una distància de 50
+Nueva York, que está a una distància de 44
+Atlanta, que está a una distància de 41
+Miami, que está a una distància de 36
+
+La ciudad Londres está en les coordenades 700,230
+Sus ciudades colindantes son:
+Nueva York, que está a una distància de 325
+Madrid, que está a una distància de 61
+Paris, que está a una distància de 33
+Essen, que está a una distància de 68
+
+La ciudad Madrid está en les coordenades 687,290
+Sus ciudades colindantes son:
+Nueva York, que está a una distància de 307
+Londres, que está a una distància de 61
+Paris, que está a una distància de 56
+Sao Paulo, que está a una distància de 326
+Argel, que está a una distància de 58
+
+La ciudad Paris está en les coordenades 727,250
+Sus ciudades colindantes son:
+Madrid, que está a una distància de 56
+Londres, que está a una distància de 33
+Essen, que está a una distància de 66
+Argel, que está a una distància de 80
+Milan, que está a una distància de 31
+
+La ciudad Essen está en les coordenades 755,190
+Sus ciudades colindantes son:
+Londres, que está a una distància de 68
+Paris, que está a una distància de 66
+San Petersburgo, que está a una distància de 63
+Milan, que está a una distància de 45
+
+La ciudad Milan está en les coordenades 755,235
+Sus ciudades colindantes son:
+Essen, que está a una distància de 45
+Paris, que está a una distància de 31
+Estambul, que está a una distància de 95
+
+La ciudad San Petersburgo está en les coordenades 815,210
+Sus ciudades colindantes son:
+Essen, que está a una distància de 63
+Estambul, que está a una distància de 85
+Moscu, que está a una distància de 77
+
+La ciudad Los Angeles está en les coordenades 275,355
+Sus ciudades colindantes son:
+San Francisco, que está a una distància de 56
+Mexico DF, que está a una distància de 39
+Chicago, que está a una distància de 79
+Sidney, que está a una distància de 1084
+
+La ciudad Miami está en les coordenades 380,360
+Sus ciudades colindantes son:
+Washington, que está a una distància de 36
+Atlanta, que está a una distància de 72
+Mexico DF, que está a una distància de 83
+Bogota, que está a una distància de 101
+
+La ciudad Mexico DF está en les coordenades 300,385
+Sus ciudades colindantes son:
+Los Angeles, que está a una distància de 39
+Miami, que está a una distància de 83
+Chicago, que está a una distància de 105
+Bogota, que está a una distància de 125
+Lima, que está a una distància de 165
+
+La ciudad Bogota está en les coordenades 400,460
+Sus ciudades colindantes son:
+Miami, que está a una distància de 101
+Mexico DF, que está a una distància de 125
+Lima, que está a una distància de 60
+Sao Paulo, que está a una distància de 162
+Buenos Aires, que está a una distància de 216
+
+La ciudad Lima está en les coordenades 395,520
+Sus ciudades colindantes son:
+Mexico DF, que está a una distància de 165
+Bogota, que está a una distància de 60
+Santiago de Chile, que está a una distància de 105
+
+La ciudad Santiago de Chile está en les coordenades 430,620
+Sus ciudades colindantes son:
+Lima, que está a una distància de 105
+
+La ciudad Buenos Aires está en les coordenades 453,670
+Sus ciudades colindantes son:
+Sao Paulo, que está a una distància de 120
+Bogota, que está a una distància de 216
+
+La ciudad Sao Paulo está en les coordenades 520,570
+Sus ciudades colindantes son:
+Bogota, que está a una distància de 162
+Buenos Aires, que está a una distància de 120
+Lagos, que está a una distància de 224
+Madrid, que está a una distància de 326
+
+La ciudad Lagos está en les coordenades 710,450
+Sus ciudades colindantes son:
+Sao Paulo, que está a una distància de 224
+Kinsasa, que está a una distància de 108
+Jartum, que está a una distància de 105
+
+La ciudad Kinsasa está en les coordenades 770,540
+Sus ciudades colindantes son:
+Lagos, que está a una distància de 108
+Jartum, que está a una distància de 100
+Johannesburgo, que está a una distància de 100
+
+La ciudad Jartum está en les coordenades 815,450
+Sus ciudades colindantes son:
+El Cairo, que está a una distància de 100
+Lagos, que está a una distància de 105
+Kinsasa, que está a una distància de 100
+Johannesburgo, que está a una distància de 180
+
+La ciudad Johannesburgo está en les coordenades 815,630
+Sus ciudades colindantes son:
+Kinsasa, que está a una distància de 100
+Jartum, que está a una distància de 180
+
+La ciudad Argel está en les coordenades 730,330
+Sus ciudades colindantes son:
+Madrid, que está a una distància de 58
+Paris, que está a una distància de 80
+Estambul, que está a una distància de 106
+El Cairo, que está a una distància de 92
+
+La ciudad El Cairo está en les coordenades 820,350
+Sus ciudades colindantes son:
+Argel, que está a una distància de 92
+Estambul, que está a una distància de 56
+Bagdad, que está a una distància de 67
+
+La ciudad Riad está en les coordenades 895,385
+Sus ciudades colindantes son:
+El Cairo, que está a una distància de 82
+Bagdad, que está a una distància de 66
+Karachi, que está a una distància de 90
+
+La ciudad Estambul está en les coordenades 830,294
+Sus ciudades colindantes son:
+Argel, que está a una distància de 106
+El Cairo, que está a una distància de 56
+Bagdad, que está a una distància de 56
+Moscu, que está a una distància de 87
+
+La ciudad Bagdad está en les coordenades 880,320
+Sus ciudades colindantes son:
+Estambul, que está a una distància de 56
+Karachi, que está a una distància de 105
+Riad, que está a una distància de 66
+El Cairo, que está a una distància de 67
+
+La ciudad Moscu está en les coordenades 890,230
+Sus ciudades colindantes son:
+Teheran, que está a una distància de 85
+Estambul, que está a una distància de 87
+San Petersburgo, que está a una distància de 77
+
+La ciudad Teheran está en les coordenades 920,310
+Sus ciudades colindantes son:
+Moscu, que está a una distància de 85
+Bagdad, que está a una distància de 41
+Karachi, que está a una distància de 75
+Nueva Delhi, que está a una distància de 106
+
+La ciudad Karachi está en les coordenades 980,355
+Sus ciudades colindantes son:
+Teheran, que está a una distància de 75
+Bagdad, que está a una distància de 105
+Nueva Delhi, que está a una distància de 51
+Riad, que está a una distància de 90
+Bombay, que está a una distància de 47
+
+La ciudad Bombay está en les coordenades 1005,395
+Sus ciudades colindantes son:
+Karachi, que está a una distància de 47
+Nueva Delhi, que está a una distància de 68
+Madras, que está a una distància de 33
+
+La ciudad Nueva Delhi está en les coordenades 1025,330
+Sus ciudades colindantes son:
+Teheran, que es
