@@ -6,8 +6,8 @@ public class Enfermedades {
 
     public static void main(String[] args) {
     	
-    	String archivoCiudades = "C:\\Users\\david\\OneDrive\\Escritorio\\Recursos del CICP\\ciudades.txt";//Ruta del fitxer
-        String archivoEnfermedades = "C:\\Users\\david\\OneDrive\\Escritorio\\Recursos del CICP\\CCP.bin";//Ruta del fitxer
+    	String archivoCiudades = "ciudades.txt";//Ruta del fitxer
+        String archivoEnfermedades = "CCP.bin";//Ruta del fitxer
         String archivoSalida = "ciudades-enfermedad.bin";//Ruta del fitxer
         
         int numeroEnfermedad = 0;//Variable int per saber quin num de enfermetat te cada ciutat del fitxer ciudades.txt
