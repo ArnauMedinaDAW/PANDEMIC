@@ -7,6 +7,8 @@ import java.util.*;
 public class Buscando_las_ruta_optimas {
 
 	public static void main(String[] args) {
+		
+		AAAAAA
 
 		String NomFit = "ciudades.txt";// Ruta del fitxer.
 		String a = "";// Linia de la ciutat actual.
