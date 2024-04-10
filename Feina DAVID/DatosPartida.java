@@ -1,4 +1,4 @@
-package Pandemic;
+package Modelo;
 
 import java.util.*;
 

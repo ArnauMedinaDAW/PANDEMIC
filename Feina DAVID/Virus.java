@@ -1,6 +1,6 @@
-package Pandemic;
+package Modelo;
 
-public class Virus extends DatosPartida{
+public class Virus {
 	
 	private String identificador;
 	private String nombre;

@@ -1,6 +1,6 @@
-package Pandemic;
+package Modelo;
 
-public class Vacunas extends DatosPartida{
+public class Vacunas {
 
 	private String nombre;
 	private String color;
@@ -46,4 +46,5 @@ public class Vacunas extends DatosPartida{
 	public void desarrolarVacuna(float porcentaje) {
 		
 	}
+	
 }

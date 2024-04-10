@@ -1,6 +1,6 @@
-package Pandemic;
+package Modelo;
 
-public class Ciudad extends DatosPartida {
+public class Ciudad {
 
 	
 	private String nombre;
