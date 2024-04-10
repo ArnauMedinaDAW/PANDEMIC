@@ -1,4 +1,4 @@
-package Pandemic;
+package Controlador;
 
 import java.util.ArrayList;
 
