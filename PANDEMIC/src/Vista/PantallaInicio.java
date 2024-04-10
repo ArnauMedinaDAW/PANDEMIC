@@ -1,4 +1,4 @@
-package Pandemic;
+package Vista;
 
 public class PantallaInicio {
 
