@@ -1,4 +1,4 @@
-package Pandemic;
+package Controlador;
 
 public class ControlPartida {
 
