@@ -1,6 +1,10 @@
 **JAVA PROJECT PANDEMIC**
 
+COMO DESCARGAR:
+El repositorio es público, asi que puedes comprimir el proyecto en el boton de <>Code ->Download Zip
+o usando github desktop
 COMO EJECUTAR:
+
 Abre al paquete de Main, dentro ejecuta la clase Main
 
 IMPORTANTE:
