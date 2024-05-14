@@ -16,6 +16,6 @@ Dentro del proyecto están todas las librerias requeridas, si usas Eclipse IDE, 
   de private static final String URL, por el comentario en la linia de arriba.
 
 En caso de querer modificar la interfaz gráfica, instalar en Eclipse IDE la extensión WindowBuilder,
-para ver correctamente las imagenes en el editor, deberás cambiar la ruta de las imagenes en las clases de PanelPrincipal y juego, por la ruta absoluta.
+para ver correctamente las imágenes en el editor, deberás cambiar la ruta de las imágenes en las clases de PanelPrincipal y juego, por la ruta absoluta.
 
 
