@@ -91,7 +91,7 @@ public class Juego extends JPanel implements ActionListener {
 
 		// Fondo de la interfaç
 		JLabel fondoLabel = new JLabel("");
-		fondoLabel.setIcon(new ImageIcon("F:\\DAW_1\\Eclipse\\PANDEMIC\\mapaMundo.png"));
+		fondoLabel.setIcon(new ImageIcon("mapaMundo.png"));
 		fondoLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		add(fondoLabel);
 		fondoLabel.setLayout(new BorderLayout());
