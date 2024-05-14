@@ -37,7 +37,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 		// screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
 		// Cargamos la imagen desde un archivo
-		ImageIcon imagen = new ImageIcon("F:\\DAW_1\\Eclipse\\PANDEMIC\\logo1.png");
+		ImageIcon imagen = new ImageIcon("logo1.png");
 
 		// Escalamos la imagen para que coincida con el tamaño de la pantalla
 		Image img = imagen.getImage();
