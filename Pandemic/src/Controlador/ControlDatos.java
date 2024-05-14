@@ -15,6 +15,7 @@ import java.sql.*;
 public class ControlDatos {
 
 	// Si estáis desde casa, la url será oracle.ilerna.com y no 192.168.3.26
+	//Remplazar URL -> jdbc:oracle:thin:@oracle.ilerna.com:1521:xe
 	private static final String URL = "jdbc:oracle:thin:@192.168.3.26:1521:xe";
 	private static final String user = "DW1_2324_OL_DAVID";
 	private static final String password = "A47991504A";
