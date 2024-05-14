@@ -1,5 +1,8 @@
 **JAVA PROJECT PANDEMIC**
 
+COMO EJECUTAR:
+Abre al paquete de Main, dentro ejecuta la clase Main
+
 IMPORTANTE:
 Dentro del proyecto están todas las librerias requeridas, si usas Eclipse IDE, sigue los siguientes pasos:
 
@@ -11,5 +14,8 @@ Dentro del proyecto están todas las librerias requeridas, si usas Eclipse IDE, 
   5-Si se ejecuta fuera del dominio ip del centro Ilerna Lleida, dentro del paquete de Controlador, 
   en la clase ControlDatos, remplaza el contenido 
   de private static final String URL, por el comentario en la linia de arriba.
+
+En caso de querer modificar la interfaz gráfica, instalar en Eclipse IDE la extensión WindowBuilder,
+para ver correctamente las imagenes en el editor, deberás cambiar la ruta de las imagenes en las clases de PanelPrincipal y juego, por la ruta absoluta.
 
 
