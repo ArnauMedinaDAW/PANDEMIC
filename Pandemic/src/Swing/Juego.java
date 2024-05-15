@@ -711,6 +711,7 @@ public class Juego extends JPanel implements ActionListener {
 		progressBarAlfa.setValue(0); // Valor inicial de la barra de progreso
 		progressBarAlfa.setForeground(Color.BLUE); // Color de la barra de progreso
 		botonPanel.add(progressBarAlfa);
+		progressBarAlfa.setValue(DatosPartida.vacunas.get(0).porcentaje);
 
 		progressBarBeta = new JProgressBar();
 		progressBarBeta.setForeground(new Color(255, 0, 0));
@@ -720,6 +721,7 @@ public class Juego extends JPanel implements ActionListener {
 		progressBarBeta.setForeground(Color.RED); // Color de la barra de progreso
 		progressBarBeta.setBounds(37, 349, 146, 14);
 		botonPanel.add(progressBarBeta);
+		progressBarBeta.setValue(DatosPartida.vacunas.get(1).porcentaje);
 
 		progressBarGama = new JProgressBar();
 		progressBarGama.setForeground(new Color(128, 255, 128));
@@ -729,6 +731,7 @@ public class Juego extends JPanel implements ActionListener {
 		progressBarGama.setValue(0); // Valor inicial de la barra de progreso
 		progressBarGama.setForeground(Color.GREEN); // Color de la barra de progreso
 		botonPanel.add(progressBarGama);
+		Juego.progressBarGama.setValue(DatosPartida.vacunas.get(2).porcentaje);
 
 		progressBarDelta = new JProgressBar();
 		progressBarDelta.setForeground(new Color(255, 255, 128));
@@ -738,6 +741,7 @@ public class Juego extends JPanel implements ActionListener {
 		progressBarDelta.setValue(0); // Valor inicial de la barra de progreso
 		progressBarDelta.setForeground(Color.YELLOW); // Color de la barra de progreso
 		botonPanel.add(progressBarDelta);
+		Juego.progressBarDelta.setValue(DatosPartida.vacunas.get(3).porcentaje);
 
 		btnAlfa = new JButton("Alfa");
 		btnAlfa.setBackground(new Color(0, 128, 255));
@@ -777,17 +781,7 @@ public class Juego extends JPanel implements ActionListener {
 		// HACER VISIBLES LAS CIUDADES INFECTADAS EN UN INICIO
 		ciudadesInfectadasInicio();
 
-		// Audio
-		try {
-			AudioInputStream audioInputStream = AudioSystem
-					.getAudioInputStream(new File("PZMainTheme.wav").getAbsoluteFile());
-			Clip clip = AudioSystem.getClip();
-			clip.open(audioInputStream);
-			clip.start();
-			clip.loop(Clip.LOOP_CONTINUOUSLY);
-		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
-			System.out.println("Error al reproducir el sonido.");
-		}
+
 	}
 
 	@Override
@@ -795,7 +789,7 @@ public class Juego extends JPanel implements ActionListener {
 
 		if (e.getSource().equals(guardar)) {
 
-			ControlDatos.guardarEstadoCiudades();
+			ControlDatos.guardarJuego();
 			System.exit(0);
 
 		}
@@ -849,6 +843,7 @@ public class Juego extends JPanel implements ActionListener {
 		}
 		if (ControlPartida.victoria) {
 			JOptionPane.showMessageDialog(this, "Has ganado!", "Resumen", JOptionPane.INFORMATION_MESSAGE);
+			ControlDatos.guardarRecord();
 		}
 
 	}
@@ -874,23 +869,19 @@ public class Juego extends JPanel implements ActionListener {
 
 	public static void ciudadesInfectadasInicio() {
 
+		int a=0;
 		for (int i = 0; i < DatosPartida.ciutats.size(); i++) {
 
-			if (DatosPartida.ciutats.get(i).infeccion == 1) {
+			if (DatosPartida.ciutats.get(i).infeccion !=0) {
 
 				Juego.ciudades[i].setVisible(true);
 				frases.add(DatosPartida.ciutats.get(i).getNombre() + " nivel " + DatosPartida.ciutats.get(i).getInfeccion() );
+				a++;
 			}
-		
-//			ciudades[i].setText("1");
-//			ciudades[i].setForeground(Color.BLACK);
-////			int tamañoFuente = 3; 
-////			Font fuente = new Font("Arial", Font.PLAIN, tamañoFuente); 
-////			ciudades[i].setFont(fuente);
-			
 		
 		
 		}
+		//System.out.println(a);
 	}
 
 	public void curarCiudad(int indexVacuna) {
