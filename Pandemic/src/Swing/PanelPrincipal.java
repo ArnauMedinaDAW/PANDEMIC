@@ -298,8 +298,9 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 		    String[] b = null; // Declarar b aquí para que esté accesible fuera del bloque try
 		    ArrayList<String> puntuaciones = new ArrayList<>(); // Creamos el ArrayList aquí
 		    
-		    try (Connection con = DriverManager.getConnection("jdbc:oracle:thin:@oracle.ilerna.com:1521:xe",
-		            "DW1_2324_OL_DAVID", "A47991504A")) {
+		    													
+		    try (Connection con = DriverManager.getConnection(ControlDatos.URL,
+		            ControlDatos.user,  ControlDatos.password)) {
 		    	String query = "SELECT PR.* " +
 		                "FROM PANDEMIC_RECORDS PR " +
 		                "JOIN ( " +
