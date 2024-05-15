@@ -10,13 +10,15 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import java.math.BigDecimal;
 import java.sql.*;
 
 public class ControlDatos {
 
 	// Si estáis desde casa, la url será oracle.ilerna.com y no 192.168.3.26
-	//Remplazar URL -> jdbc:oracle:thin:@oracle.ilerna.com:1521:xe
-	private static final String URL = "jdbc:oracle:thin:@192.168.3.26:1521:xe";
+	// Remplazar URL -> jdbc:oracle:thin:@oracle.ilerna.com:1521:xe
+	// jdbc:oracle:thin:@192.168.3.26:1521:xe
+	private static final String URL = "jdbc:oracle:thin:@oracle.ilerna.com:1521:xe";
 	private static final String user = "DW1_2324_OL_DAVID";
 	private static final String password = "A47991504A";
 
@@ -79,7 +81,7 @@ public class ControlDatos {
 				}
 			} catch (SQLException e) {
 				System.out.println("Error al iniciar sesión: " + e.getMessage());
-			}finally {
+			} finally {
 				cerrarConexion(con, ps, rs);
 			}
 		}
@@ -108,7 +110,7 @@ public class ControlDatos {
 				}
 			} catch (SQLException e) {
 				System.out.println("Error al registrar usuario: " + e.getMessage());
-			}finally {
+			} finally {
 				cerrarConexion(con, ps, null);
 			}
 		}
@@ -130,71 +132,204 @@ public class ControlDatos {
 		}
 	}
 
-	public static void guardarEstadoCiudades() {
+	/**
+	 * Realiza una inserción en la base de datos.
+	 *
+	 * @param con Objeto Connection que representa la conexión a la base de datos.
+	 * @param sql Sentencia SQL de inserción que hayais creado.
+	 */
+
+	public static void guardarJuego() {
 		Connection con = conectarBaseDatos();
+
+		// GUARDAR DATOS PARTIDA
+		// Usuario para eliminar los registros
+		String usuario = ControlDatos.user_partida;
+
+		// Sentencia SQL de eliminación
+		String sqlDelete = "DELETE FROM DATOS_PARTIDA WHERE usuario = '" + usuario + "'";
+
+		// Ejecutar el DELETE
+		BBDD.delete(con, sqlDelete);
+
+		// Sentencia SQL de inserción
+		String sqlInsert = "INSERT INTO DATOS_PARTIDA(usuario, rondas, brotes, dificultad) " + "VALUES ('" + usuario
+				+ "','" + DatosPartida.rondas + "', '" + DatosPartida.brotes + "',  '" + ControlDatos.dificulty + "')";
+
+		// Ejecutar el INSERT
+		BBDD.insert(con, sqlInsert);
+
+		// GUARDAR CIUDADES
 		String queryDelete = "DELETE FROM CIUDADES_PARTIDA WHERE usuario = ?";
-	    String queryInsert = "INSERT INTO CIUDADES_PARTIDA (usuario, ciudad) VALUES (?, ?)";
-	    PreparedStatement psDelete = null;
-	    PreparedStatement psInsert = null;
+		String queryInsert = "INSERT INTO CIUDADES_PARTIDA (usuario, ciudad) VALUES (?, ?)";
+		PreparedStatement psDelete = null;
+		PreparedStatement psInsert = null;
 
-	    try {
-	    	// Eliminar registros existentes para el usuario
-	        psDelete = con.prepareStatement(queryDelete);
-	        psDelete.setString(1, ControlDatos.user_partida);//ControlDatos.user_partida
-	        psDelete.executeUpdate();
+		try {
+			// Eliminar registros existentes para el usuario
+			psDelete = con.prepareStatement(queryDelete);
+			psDelete.setString(1, ControlDatos.user_partida);
+			psDelete.executeUpdate();
 
-	        // Insertar nuevos registros
-	        psInsert = con.prepareStatement(queryInsert);
-	        for (int i = 0; i < DatosPartida.ciutats.size(); i++) {
-	            Struct struct = con.createStruct("CIUDADES", new Object[] {
-	                    DatosPartida.ciutats.get(i).getNombre(), DatosPartida.ciutats.get(i).getInfeccion() });
-	            psInsert.setString(1, ControlDatos.user_partida);
-	            psInsert.setObject(2, struct);
-	            psInsert.addBatch(); // Agregar la inserción a un lote
-	        }
-	        psInsert.executeBatch(); // Ejecutar todas las inserciones en el lote
+			// Insertar nuevos registros
+			psInsert = con.prepareStatement(queryInsert);
+			for (int i = 0; i < DatosPartida.ciutats.size(); i++) {
+				// Crear un objeto CIUDADES
+				Struct struct = con.createStruct("CIUDADES", new Object[] { DatosPartida.ciutats.get(i).getNombre(),
+						DatosPartida.ciutats.get(i).getInfeccion() });
 
-	        System.out.println("Inserción de datos de ciudades realizada correctamente");
-	    } catch (SQLException e) {
-	        System.out.println("Ha habido un error en la inserción de datos de ciudades: " + e.getMessage());
-	    } finally {
-			cerrarConexion(con, psInsert, null);
-			cerrarConexion(con, psDelete, null);
-	    }
-	    
+				// Insertar el objeto CIUDADES y el usuario en la tabla CIUDADES_PARTIDA
+				psInsert.setString(1, ControlDatos.user_partida);
+				psInsert.setObject(2, struct);
+				psInsert.addBatch(); // Agregar la inserción a un lote
+			}
+			psInsert.executeBatch(); // Ejecutar todas las inserciones en el lote
+
+			System.out.println("Inserción de datos de ciudades realizada correctamente");
+		} catch (SQLException e) {
+			System.out.println("Ha habido un error en la inserción de datos de ciudades: " + e.getMessage());
+		}
+
+		// GUARDAR VACUNAS
+		queryDelete = "DELETE FROM VACUNAS_PARTIDA WHERE usuario = ?";
+		queryInsert = "INSERT INTO VACUNAS_PARTIDA (usuario, vacunas) VALUES (?, ?)";
+		psDelete = null;
+		psInsert = null;
+		try {
+			// Eliminar registros existentes para el usuario
+			psDelete = con.prepareStatement(queryDelete);
+			psDelete.setString(1, ControlDatos.user_partida);
+			psDelete.executeUpdate();
+
+			// Insertar nuevos registros
+			psInsert = con.prepareStatement(queryInsert);
+			for (int i = 0; i < DatosPartida.vacunas.size(); i++) {
+				// Crear un objeto CIUDADES
+				Struct struct = con.createStruct("VACUNAS", new Object[] { DatosPartida.vacunas.get(i).getNombre(),
+						DatosPartida.vacunas.get(i).getPorcentaje() });
+
+				// Insertar el objeto CIUDADES y el usuario en la tabla CIUDADES_PARTIDA
+				psInsert.setString(1, ControlDatos.user_partida);
+				psInsert.setObject(2, struct);
+				psInsert.addBatch(); // Agregar la inserción a un lote
+			}
+			psInsert.executeBatch(); // Ejecutar todas las inserciones en el lote
+
+			System.out.println("Inserción de datos de vacunas realizada correctamente");
+		} catch (SQLException e) {
+			System.out.println("Ha habido un error en la inserción de datos de vacunas: " + e.getMessage());
+		}
+
 	}
 
-	public static void cargarEstadoCiudades() {
-	    Connection con = conectarBaseDatos();
-		String querySelect = "SELECT ciudad.nom AS nom_ciudad, ciudad.nivell_infeccio AS nivell_infeccio FROM CIUDADES_PARTIDA WHERE usuario = ?";
-	    PreparedStatement psSelect = null;
-	    ResultSet rs = null;
+	public static void cargarJuego() {
 
-	    try {
-	        psSelect = con.prepareStatement(querySelect);
-	        psSelect.setString(1, "1"); // Aquí debes colocar el usuario que corresponda
-	        rs = psSelect.executeQuery();
+		for (int i = 0; i < DatosPartida.ciutats.size(); i++) {
 
-	        // Recorrer el resultado y cargar los datos de las ciudades
-	        while (rs.next()) {
-	            String nombreCiudad = rs.getString("nom_ciudad");
-	            System.out.println(rs);
-	            int nivelInfeccion = rs.getInt("nivell_infeccio");
-	            System.out.println(rs);
-	        }
+			DatosPartida.ciutats.get(i).infeccion = 0;
+		}
+		DatosPartida.numEnfermedadesActivas = 0;
 
-	        System.out.println("Carga de datos de ciudades realizada correctamente");
-	    } catch (SQLException e) {
-	        System.out.println("Ha habido un error al cargar los datos de las ciudades: " + e.getMessage());
-	    } finally {
-	        cerrarConexion(con, psSelect, rs);
-	    }
+		Connection con = conectarBaseDatos();
 
-	 
+		// Usuario específico
+		String usuarioEspecifico = user_partida;
+
+		// CARGAR DATOS PARTIDA
+		String sql = "SELECT rondas, brotes, dificultad FROM DATOS_PARTIDA WHERE usuario = ?";
+		String[] elementosSeleccionados = { "rondas", "brotes", "dificultad" };
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, usuarioEspecifico);
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+				for (String elemento : elementosSeleccionados) {
+					// Asignar valores específicos a cada columna
+					if (elemento.equals("rondas")) {
+						DatosPartida.rondas = rs.getInt(elemento);
+						// System.out.println(DatosPartida.rondas);
+					} else if (elemento.equals("brotes")) {
+						DatosPartida.brotes = rs.getInt(elemento);
+						// System.out.println(DatosPartida.brotes);
+					} else if (elemento.equals("dificultad")) {
+						dificulty = rs.getString(elemento);
+						// System.out.println(ControlDatos.dificulty);
+						cargarParametrosInicioCiudades();// Cargar los valores segun la dificultad
+						 //System.out.println(ControlDatos.numCuidadesInfectadasRonda);
+					}
+				}
+			} else {
+				System.out.println("No se encontraron datos de partida para el usuario " + usuarioEspecifico);
+			}
+		} catch (SQLException ex) {
+			System.out.println("Ha ocurrido un error al cargar los datos de partida: " + ex.getMessage());
+		}
+
+		// CARGAR LAS CIUDADES
+		String querySelect = "SELECT usuario, TREAT(ciudad AS CIUDADES).nom AS nom_ciudad, "
+				+ "TREAT(ciudad AS CIUDADES).nivell_infeccio AS nivell_infeccio " + "FROM CIUDADES_PARTIDA "
+				+ "WHERE usuario = ?";
+
+		PreparedStatement psSelect = null;
+		ResultSet rs = null;
+		int i = 0;
+		try {
+			psSelect = con.prepareStatement(querySelect);
+			psSelect.setString(1, usuarioEspecifico);
+			rs = psSelect.executeQuery();
+
+			// Recorrer el resultado y cargar los datos de las ciudades
+			while (rs.next()) {
+				// Obtener los datos de la ciudad
+				String nombreCiudad = rs.getString("nom_ciudad");
+				int nivelInfeccion = rs.getInt("nivell_infeccio");
+
+				// Actualizar los datos cargados
+				DatosPartida.ciutats.get(i).infeccion = nivelInfeccion;
+				
+				i++;
+			}
+			contarInfecciones();
+
+			System.out.println("Carga de datos de ciudades realizada correctamente");
+		} catch (SQLException e) {
+			System.out.println("Ha habido un error al cargar los datos de las ciudades: " + e.getMessage());
+		}
+
+		// CARGAR LAS VACUNAS
+		querySelect = "SELECT usuario, TREAT(vacunas AS VACUNAS).nom_vacuna AS nom_vacuna, "
+				+ "TREAT(vacunas AS VACUNAS).nivell_vacuna AS nivell_vacuna " + "FROM VACUNAS_PARTIDA "
+				+ "WHERE usuario = ?";
+
+		psSelect = null;
+		rs = null;
+		i = 0;
+		try {
+			psSelect = con.prepareStatement(querySelect);
+			psSelect.setString(1, usuarioEspecifico);
+			rs = psSelect.executeQuery();
+
+			// Recorrer el resultado y cargar los datos de las ciudades
+			while (rs.next()) {
+				// Obtener los datos de la ciudad
+				String nombreVacuna = rs.getString("nom_vacuna");
+				int nivelInfeccion = rs.getInt("nivell_vacuna");
+
+				// Actualizar los datos cargados
+				DatosPartida.vacunas.get(i).setPorcentaje(nivelInfeccion);
+				//System.out.println(DatosPartida.vacunas.get(i).getPorcentaje());
+				i++;
+			}
+			
+
+			System.out.println("Carga de datos de vacunas realizada correctamente");
+		} catch (SQLException e) {
+			System.out.println("Ha habido un error al cargar los datos de las vacunas: " + e.getMessage());
+		}		finally {
+			cerrarConexion(con, psSelect, rs);
+		}
 	}
-
-
-
 
 	public void cargarVacunas(ArrayList<Vacunas> vacunas) {
 
@@ -204,75 +339,21 @@ public class ControlDatos {
 
 	}
 
-	public void guardarPartida(String usuario, int rondas, String estado, ArrayList<Ciudad> ciudades) {
+	public static void guardarRecord() {
 		Connection con = conectarBaseDatos();
-		PreparedStatement psPartida = null;
-		PreparedStatement psCiudades = null;
 
-		if (con != null) {
-			try {
-				// Insertar datos generales de la partida en la tabla PARTIDA
-				String queryPartida = "INSERT INTO PARTIDA (usuario, rondas, estado) VALUES (?, ?, ?)";
-				psPartida = con.prepareStatement(queryPartida, Statement.RETURN_GENERATED_KEYS);
-				psPartida.setString(1, usuario);
-				psPartida.setInt(2, rondas);
-				psPartida.setString(3, estado);
-				psPartida.executeUpdate();
+//		String sqlDelete = "DELETE FROM PANDEMIC_RECORDS WHERE usuario = '" + ControlDatos.user_partida + "'";
+//
+//		// Ejecutar el DELETE
+//		BBDD.delete(con, sqlDelete);
 
-				// Obtener el ID de la partida recién insertada
-				ResultSet rs = psPartida.getGeneratedKeys();
-				int idPartida = -1;
-				if (rs.next()) {
-					idPartida = rs.getInt(1);
-				}
+		String sqlInsert = "INSERT INTO PANDEMIC_RECORDS (usuario, rondas, fecha, resultado, dificultad) VALUES ('"
+				+ ControlDatos.user_partida + "','" + DatosPartida.rondas + "', SYSDATE, 'Victoria','"
+				+ ControlDatos.dificulty + "')";
 
-				// Insertar datos de las ciudades en la tabla CIUDADES_PARTIDA
-				String queryCiudades = "INSERT INTO CIUDADES_PARTIDA (id_partida, nombre_ciudad, nivel_infeccion) VALUES (?, ?, ?)";
-				psCiudades = con.prepareStatement(queryCiudades);
-				for (Ciudad ciudad : ciudades) {
-					psCiudades.setInt(1, idPartida);
-					psCiudades.setString(2, ciudad.getNombre());
-					psCiudades.setInt(3, ciudad.getInfeccion());
-					psCiudades.executeUpdate();
-				}
+		// Ejecutar el INSERT
+		BBDD.insert(con, sqlInsert);
 
-				System.out.println("Partida guardada correctamente.");
-			} catch (SQLException e) {
-				System.out.println("Error al guardar la partida: " + e.getMessage());
-			} finally {
-				cerrarConexion(con, psPartida, null);
-				cerrarConexion(con, psCiudades, null);
-			}
-		}
-	}
-
-	public void guardarRecord(String usuario, int rondas, String resultado) {
-		Connection con = conectarBaseDatos();
-		PreparedStatement ps = null;
-
-		try {
-			// Consulta SQL para insertar un nuevo registro
-			String insertQuery = "INSERT INTO PANDEMIC_RECORDS (usuario, rondas, fecha, resultado) VALUES (?, ?, SYSDATE, ?)";
-			ps = con.prepareStatement(insertQuery);
-			ps.setString(1, usuario);
-			ps.setInt(2, rondas);
-			ps.setString(3, resultado);
-			ps.executeUpdate();
-			System.out.println("Se ha registrado el récord de " + usuario + " con " + rondas + " rondas y resultado: "
-					+ resultado);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			// Cerrar la conexión y los recursos
-			try {
-				if (ps != null)
-					ps.close();
-				if (con != null)
-					con.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
 	}
 
 	public static void cargarParametrosInicioCiudades() {
@@ -342,6 +423,18 @@ public class ControlDatos {
 
 	public void setpDesarrollo(int x) {
 		pDesarrollo = x;
+	}
+
+	public static void contarInfecciones() {
+
+		for (int i = 0; i < DatosPartida.ciutats.size(); i++) {
+
+			if (DatosPartida.ciutats.get(i).infeccion != 0) {
+				DatosPartida.numEnfermedadesActivas++;
+			}
+
+		}
+
 	}
 
 }
