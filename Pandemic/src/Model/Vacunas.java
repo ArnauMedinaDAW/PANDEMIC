@@ -38,7 +38,7 @@ public class Vacunas {
 		this.porcentaje = porcentaje;
 	}
 	
-	public float getPorcentaje() {
+	public int getPorcentaje() {
 		return this.porcentaje;
 	}
 
