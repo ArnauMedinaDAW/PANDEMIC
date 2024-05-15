@@ -120,61 +120,57 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 		// Añadimos el contenedor JPanel de los botones al centro del JLabel de fondo
 		fondoLabel.add(botonPanel, BorderLayout.CENTER);
 
+		// Version del proyecto
 		JLabel lblNewLabel = new JLabel("VERSION 1.0");
 		lblNewLabel.setFont(new Font("Calisto MT", Font.BOLD, 15));
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 
+		// Establacer posiciones de los botones con GroupLayout desde el editor
+		// WindowsBuilder
 		GroupLayout gl_botonPanel = new GroupLayout(botonPanel);
-		gl_botonPanel.setHorizontalGroup(
-			gl_botonPanel.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_botonPanel.createSequentialGroup()
-					.addContainerGap(65, Short.MAX_VALUE)
-					.addGroup(gl_botonPanel.createParallelGroup(Alignment.TRAILING)
-						.addGroup(gl_botonPanel.createSequentialGroup()
-							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE)
-							.addGap(101))
-						.addGroup(gl_botonPanel.createSequentialGroup()
-							.addGroup(gl_botonPanel.createParallelGroup(Alignment.LEADING)
-								.addComponent(boton3, GroupLayout.PREFERRED_SIZE, 173, GroupLayout.PREFERRED_SIZE)
-								.addComponent(boton1, GroupLayout.PREFERRED_SIZE, 203, GroupLayout.PREFERRED_SIZE))
-							.addGap(48)
-							.addGroup(gl_botonPanel.createParallelGroup(Alignment.TRAILING)
+		gl_botonPanel.setHorizontalGroup(gl_botonPanel.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_botonPanel.createSequentialGroup().addContainerGap(65, Short.MAX_VALUE)
+						.addGroup(gl_botonPanel.createParallelGroup(Alignment.TRAILING)
+								.addGroup(gl_botonPanel
+										.createSequentialGroup()
+										.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 118,
+												GroupLayout.PREFERRED_SIZE)
+										.addGap(101))
 								.addGroup(gl_botonPanel.createSequentialGroup()
-									.addComponent(boton2)
-									.addGap(86))
-								.addGroup(gl_botonPanel.createSequentialGroup()
-									.addGroup(gl_botonPanel.createParallelGroup(Alignment.TRAILING)
-										.addComponent(boton4, GroupLayout.PREFERRED_SIZE, 184, GroupLayout.PREFERRED_SIZE)
-										.addComponent(boton8, GroupLayout.PREFERRED_SIZE, 145, GroupLayout.PREFERRED_SIZE))
-									.addGap(87)))
-							.addGroup(gl_botonPanel.createParallelGroup(Alignment.LEADING)
-								.addComponent(boton5, GroupLayout.PREFERRED_SIZE, 145, GroupLayout.PREFERRED_SIZE)
-								.addComponent(boton7))
-							.addGap(166))))
-		);
-		gl_botonPanel.setVerticalGroup(
-			gl_botonPanel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_botonPanel.createSequentialGroup()
-					.addGap(337)
-					.addGroup(gl_botonPanel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(boton2)
-						.addComponent(boton7)
-						.addComponent(boton1))
-					.addGap(42)
-					.addGroup(gl_botonPanel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(boton5)
-						.addComponent(boton4)
-						.addComponent(boton3))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_botonPanel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_botonPanel.createSequentialGroup()
-							.addGap(111)
-							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_botonPanel.createSequentialGroup()
-							.addGap(46)
-							.addComponent(boton8)))
-					.addGap(31))
-		);
+										.addGroup(gl_botonPanel.createParallelGroup(Alignment.LEADING)
+												.addComponent(boton3, GroupLayout.PREFERRED_SIZE, 173,
+														GroupLayout.PREFERRED_SIZE)
+												.addComponent(boton1, GroupLayout.PREFERRED_SIZE, 203,
+														GroupLayout.PREFERRED_SIZE))
+										.addGap(48)
+										.addGroup(gl_botonPanel.createParallelGroup(Alignment.TRAILING)
+												.addGroup(gl_botonPanel.createSequentialGroup().addComponent(boton2)
+														.addGap(86))
+												.addGroup(gl_botonPanel.createSequentialGroup()
+														.addGroup(gl_botonPanel.createParallelGroup(Alignment.TRAILING)
+																.addComponent(boton4, GroupLayout.PREFERRED_SIZE, 184,
+																		GroupLayout.PREFERRED_SIZE)
+																.addComponent(boton8, GroupLayout.PREFERRED_SIZE, 145,
+																		GroupLayout.PREFERRED_SIZE))
+														.addGap(87)))
+										.addGroup(gl_botonPanel.createParallelGroup(Alignment.LEADING)
+												.addComponent(boton5, GroupLayout.PREFERRED_SIZE, 145,
+														GroupLayout.PREFERRED_SIZE)
+												.addComponent(boton7))
+										.addGap(166)))));
+		gl_botonPanel.setVerticalGroup(gl_botonPanel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_botonPanel.createSequentialGroup().addGap(337)
+						.addGroup(gl_botonPanel.createParallelGroup(Alignment.BASELINE).addComponent(boton2)
+								.addComponent(boton7).addComponent(boton1))
+						.addGap(42)
+						.addGroup(gl_botonPanel.createParallelGroup(Alignment.BASELINE).addComponent(boton5)
+								.addComponent(boton4).addComponent(boton3))
+						.addPreferredGap(ComponentPlacement.RELATED)
+						.addGroup(gl_botonPanel.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_botonPanel.createSequentialGroup().addGap(111).addComponent(lblNewLabel,
+										GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))
+								.addGroup(gl_botonPanel.createSequentialGroup().addGap(46).addComponent(boton8)))
+						.addGap(31)));
 		botonPanel.setLayout(gl_botonPanel);
 		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addComponent(fondoLabel,
@@ -182,8 +178,8 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addComponent(fondoLabel,
 				GroupLayout.PREFERRED_SIZE, 484, Short.MAX_VALUE));
 		setLayout(groupLayout);
-		// Cargar el audio al iniciar el panel
 
+		// Implementar Audio
 		try {
 			AudioInputStream audioInputStream = AudioSystem
 					.getAudioInputStream(new File("PZMainTheme.wav").getAbsoluteFile());
@@ -196,6 +192,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 		}
 	}
 
+	// Método que muestra un popUp para modificar la dificultad.
 	public String mostrarPopupDificultad() {
 		String[] opcionesDificultad = { "Facil", "Normal", "Dificil" };
 		String dificultadSeleccionada = (String) JOptionPane.showInputDialog(this, "Seleccione la dificultad:",
@@ -207,6 +204,8 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 		return dificultadSeleccionada;
 	}
 
+	// Método que muestra un popUp para modificar la dificultad.Actualmente no esta
+	// en uso
 	public String mostrarPopupIdioma() {
 		String[] opcionesIdioma = { "Español", "Catalan", "Ingles" };
 		String IdiomaSeleccionado = (String) JOptionPane.showInputDialog(this, "Seleccione el Idioma:",
@@ -217,10 +216,12 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 		return IdiomaSeleccionado;
 	}
 
+	// Implementación de codigo al presionar un botón.
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == boton1) {
 
+		// NUEVA PARTIDA
+		if (e.getSource() == boton1) {
 			if (!Login.loginExitoso && !Login.registroExitoso) {
 				// Crear un nuevo marco para el Login
 				JFrame marcoLogin = new JFrame("PANDEMIC - Iniciar Sesión");
@@ -241,42 +242,49 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 			}
 
 		}
+		// CARGAR PARTIDA
 
-//		   if(e.getSource()==boton2) {
-//	    		JFrame marco = (JFrame)SwingUtilities.getWindowAncestor(this);
-//	    		marco.remove(this);
-//	    		marco.getContentPane().add(new PanelInformacion());
-//	    		marco.setVisible(true);
-//	    	}
+		if (e.getSource() == boton2) {
+
+			if (!LoginCargarPartida.loginExitoso && !Login.registroExitoso && !LoginCargarPartida.loginExitoso) {
+				// Crear un nuevo marco para el Login
+				JFrame marcoLogin = new JFrame("PANDEMIC - Iniciar Sesión");
+				marcoLogin.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				marcoLogin.setSize(400, 200);
+				marcoLogin.setResizable(false);
+				marcoLogin.setLocationRelativeTo(null); // Centrar en pantalla
+
+				// Agregar el panel de inicio de sesión al marco
+				marcoLogin.getContentPane().add(new LoginCargarPartida());
+				// Mostrar el marco
+				marcoLogin.setVisible(true);
+
+			} else {
+				JOptionPane.showMessageDialog(this, "No puedes iniciar mas de una partida", "Error",
+						JOptionPane.INFORMATION_MESSAGE);
+			}
+			;
+		}
+		// INFORMACIÓN
 		if (e.getSource() == boton3) {
-			JOptionPane.showMessageDialog(this,
-			        "Reglas del juego:\n"
-			        + "1. El juego es para un jugador.\n"
-			        + "2. Cada jugador tiene 4 acciones por ronda.\n"
-			        + "3. Las infecciones se inicializan aleatoriamente en diferentes ciudades al empezar la partida.\n"
-			        + "4. Se puede investigar una vacuna utilizando 4 acciones.\n"
-			        + "5. Se reduce 1 el nivel de infección si se cura una ciudad sin tener la vacuna desarrollada.\n"
-			        + "6. El juego no tiene límite de tiempo, finaliza cuando el jugador gana o pierde.\n\n"
-			        + "Información sobre el PANDEMIC:\n"
-			        + "Objetivo del juego: Desarrollar vacunas para cuatro enfermedades antes de que se produzca un\n"
-			        + "brote global y la humanidad sea aniquilada.\n\n"
-			        + "Mecánica del juego: \"Pandemic\" es un juego individual donde el jugador tiene que tomar decisiones\n"
-			        + "sobre si curar ciudades o desarrollar vacunas.\n\n"
-			        + "Tablero y componentes: El juego se desarrolla en un tablero que representa un mapa del mundo dividido en\n"
-			        + "ciudades y regiones. Los jugadores seleccionan ciudades al tablero para curar infecciones o desarrollar vacunas.\n\n"
-			        + "Dificultad escalable: \"Pandemic\" ofrece diferentes niveles de dificultad que los jugadores pueden\n"
-			        + "ajustar según su experiencia y preferencias.",
-			        "Información",
-			        JOptionPane.INFORMATION_MESSAGE);
-
+			JOptionPane.showMessageDialog(this, "Reglas del juego:\n" + "1. El juego es para un jugador.\n"
+					+ "2. Cada jugador tiene 4 acciones por ronda.\n"
+					+ "3. Las infecciones se inicializan aleatoriamente en diferentes ciudades al empezar la partida.\n"
+					+ "4. Se puede investigar una vacuna utilizando 4 acciones.\n"
+					+ "5. Se reduce 1 el nivel de infección si se cura una ciudad sin tener la vacuna desarrollada.\n"
+					+ "6. El juego no tiene límite de tiempo, finaliza cuando el jugador gana o pierde.\n\n"
+					+ "Información sobre el PANDEMIC:\n"
+					+ "Objetivo del juego: Desarrollar vacunas para cuatro enfermedades antes de que se produzca un\n"
+					+ "brote global y la humanidad sea aniquilada.\n\n"
+					+ "Mecánica del juego: \"Pandemic\" es un juego individual donde el jugador tiene que tomar decisiones\n"
+					+ "sobre si curar ciudades o desarrollar vacunas.\n\n"
+					+ "Tablero y componentes: El juego se desarrolla en un tablero que representa un mapa del mundo dividido en\n"
+					+ "ciudades y regiones. Los jugadores seleccionan ciudades al tablero para curar infecciones o desarrollar vacunas.\n\n"
+					+ "Dificultad escalable: \"Pandemic\" ofrece diferentes niveles de dificultad que los jugadores pueden\n"
+					+ "ajustar según su experiencia y preferencias.", "Información", JOptionPane.INFORMATION_MESSAGE);
 
 		}
-//    if(e.getSource()==boton4) {
-//		JFrame marco = (JFrame)SwingUtilities.getWindowAncestor(this);
-//		marco.remove(this);
-//		marco.getContentPane().add(new PanelInformacion());
-//		marco.setVisible(true);
-//	}
+		// AUTORES
 		if (e.getSource() == boton5) {
 			JOptionPane.showMessageDialog(this,
 					"Arnau Medina:  medina.arnau@alumnes.ilerna.com \n"
@@ -284,48 +292,54 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 
 					"Autores", JOptionPane.INFORMATION_MESSAGE);
 		}
+		// RANKING
 		if (e.getSource() == boton4) {
-			// Mostrar el ranking
-			ArrayList<String> puntuaciones = new ArrayList<>();
+		    // Mostrar el ranking
+		    String[] b = null; // Declarar b aquí para que esté accesible fuera del bloque try
+		    ArrayList<String> puntuaciones = new ArrayList<>(); // Creamos el ArrayList aquí
+		    
+		    try (Connection con = DriverManager.getConnection("jdbc:oracle:thin:@oracle.ilerna.com:1521:xe",
+		            "DW1_2324_OL_DAVID", "A47991504A")) {
+		    	String query = "SELECT PR.* " +
+		                "FROM PANDEMIC_RECORDS PR " +
+		                "JOIN ( " +
+		                "    SELECT MIN(rondas) AS rondas_minimas, dificultad " +
+		                "    FROM PANDEMIC_RECORDS " +
+		                "    GROUP BY dificultad " +
+		                ") min_rondas ON PR.dificultad = min_rondas.dificultad AND PR.rondas = min_rondas.rondas_minimas";
 
-			try (Connection con = DriverManager.getConnection("jdbc:oracle:thin:@192.168.3.26:1521:xe",
-					"DW1_2324_OL_DAVID", "A47991504A")) {
-				String query = "SELECT usuario, rondas, fecha, resultado FROM PANDEMIC_RECORDS";
 
-				try (Statement stmt = con.createStatement(); ResultSet rs = stmt.executeQuery(query)) {
 
-					while (rs.next()) {
-						String nombreJugador = rs.getString("usuario");
-						int rondas = rs.getInt("rondas");
-						Date fecha = rs.getDate("fecha");
-						String resultado = rs.getString("resultado");
-						puntuaciones.add("Jugador: " + nombreJugador + "\nRondas: " + rondas + "\nFecha: " + fecha
-								+ "\nResultado: " + resultado + "\n");
-						System.out.println();
-					}
-				}
-			} catch (SQLException ex) {
-				ex.printStackTrace();
-				JOptionPane.showMessageDialog(this, "Error al cargar el ranking desde la base de datos", "Error",
-						JOptionPane.ERROR_MESSAGE);
-			}
+		        String[] a = { "USUARIO", "RONDAS", "FECHA", "RESULTADO", "DIFICULTAD" };
 
-			JTextArea textArea = new JTextArea();
-			for (String puntuacion : puntuaciones) {
-				textArea.append(puntuacion + "\n");
-			}
-			textArea.setEditable(false);
+		        b = BBDD.selectArrayList(con, query, a);
 
-			// Colocar el JTextArea en un JScrollPane para permitir el desplazamiento
-			JScrollPane scrollPane = new JScrollPane(textArea);
+		        for (String linea : b) {
+		            puntuaciones.add(linea); // Agregar cada línea al ArrayList
+		        }
 
-			// Mostrar el mensaje de diálogo con el ranking
-			JOptionPane.showMessageDialog(this, scrollPane, "Ranking", JOptionPane.INFORMATION_MESSAGE);
+		    } catch (SQLException ex) {
+		        ex.printStackTrace();
+		        JOptionPane.showMessageDialog(this, "Error al cargar el ranking desde la base de datos", "Error",
+		                JOptionPane.ERROR_MESSAGE);
+		    }
+
+		    JTextArea textArea = new JTextArea();
+		    for (String linea : puntuaciones) {
+		        textArea.append(linea + "\n");
+		    }
+		    textArea.setEditable(false);
+		    // Colocar el JTextArea en un JScrollPane para permitir el desplazamiento
+		    JScrollPane scrollPane = new JScrollPane(textArea);
+		    // Mostrar el mensaje de diálogo con el ranking
+		    JOptionPane.showMessageDialog(this, scrollPane, "Ranking", JOptionPane.INFORMATION_MESSAGE);
 		}
 
+
+		// DIFICULTAD
 		if (e.getSource() == boton7) {
 
-			if (!Login.loginExitoso && !Login.registroExitoso) {
+			if (!LoginCargarPartida.loginExitoso && !Login.registroExitoso && !LoginCargarPartida.loginExitoso) {
 				String dificultad = mostrarPopupDificultad();
 
 				ControlDatos.dificulty = dificultad;
@@ -345,6 +359,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 
 		}
 
+		// SALIR DEL JUEGO
 		if (e.getSource() == boton8) {
 
 			System.exit(0);
