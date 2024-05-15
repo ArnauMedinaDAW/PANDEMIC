@@ -23,7 +23,6 @@ public class Login extends JPanel implements ActionListener {
 	public static boolean registroExitoso=false;
 
 
-
 	Login() {
 		setLayout(new GridLayout(3, 2));
 
