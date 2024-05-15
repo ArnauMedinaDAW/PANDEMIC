@@ -14,10 +14,10 @@ public class Marco extends JFrame {
 
 	public Marco() {
 
-		if (!Login.loginExitoso && !Login.registroExitoso) {
+		if (!Login.loginExitoso && !Login.registroExitoso && !LoginCargarPartida.loginExitoso) {
 			generarMenu();
 		}
-		if (Login.loginExitoso || Login.registroExitoso) {
+		if (Login.loginExitoso || Login.registroExitoso || LoginCargarPartida.loginExitoso) {
 			generarJuego();
 		}
 
