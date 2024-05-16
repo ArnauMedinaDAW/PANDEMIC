@@ -341,18 +341,46 @@ public class ControlDatos {
 
 	public static void guardarRecord() {
 		Connection con = conectarBaseDatos();
+		boolean ejecutar = false;
 
-//		String sqlDelete = "DELETE FROM PANDEMIC_RECORDS WHERE usuario = '" + ControlDatos.user_partida + "'";
-//
-//		// Ejecutar el DELETE
-//		BBDD.delete(con, sqlDelete);
+		String querySelect = "SELECT rondas FROM PANDEMIC_RECORDS WHERE usuario = ? AND dificultad=?";
+		String usuarioEspecifico = user_partida;
+		String dificultad = ControlDatos.dificulty;
 
-		String sqlInsert = "INSERT INTO PANDEMIC_RECORDS (usuario, rondas, fecha, resultado, dificultad) VALUES ('"
-				+ ControlDatos.user_partida + "','" + DatosPartida.rondas + "', SYSDATE, 'Victoria','"
-				+ ControlDatos.dificulty + "')";
+		PreparedStatement psSelect = null;
+		ResultSet rs = null;
 
-		// Ejecutar el INSERT
-		BBDD.insert(con, sqlInsert);
+		try {
+			psSelect = con.prepareStatement(querySelect);
+			psSelect.setString(1, usuarioEspecifico);
+			psSelect.setString(2, dificultad);
+			rs = psSelect.executeQuery();
+			if (rs.next()) {
+				int rondas = rs.getInt("rondas");
+				//System.out.println(rondas);
+				if (rondas < DatosPartida.rondas) {
+					ejecutar = true;
+				}
+			}
+		} catch (SQLException e) {
+			System.out.println("Error al cargar las rondas");
+		}
+
+		if (ejecutar) {
+			String sqlDelete = "DELETE FROM PANDEMIC_RECORDS WHERE usuario = '" + ControlDatos.user_partida + "'";
+
+			// Ejecutar el DELETE
+			BBDD.delete(con, sqlDelete);
+
+			String sqlInsert = "INSERT INTO PANDEMIC_RECORDS (usuario, rondas, fecha, resultado, dificultad) VALUES ('"
+					+ ControlDatos.user_partida + "','" + DatosPartida.rondas + "', SYSDATE, 'Victoria','"
+					+ ControlDatos.dificulty + "')";
+
+			// Ejecutar el INSERT
+			BBDD.insert(con, sqlInsert);
+		} else {
+			System.out.println("No se ha alcanzado una mejor puntuacion");
+		}
 
 	}
 
