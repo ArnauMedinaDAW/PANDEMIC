@@ -1,7 +1,10 @@
 **JAVA PROJECT PANDEMIC**
 
 COMO DESCARGAR:
-El repositorio es público, asi que puedes comprimir el proyecto en el boton de <>Code ->Download Zip
+
+-Descargar el .zip o bien,
+
+-El repositorio es público, asi que puedes comprimir el proyecto en el boton de <>Code ->Download Zip
 o usando github desktop
 COMO EJECUTAR:
 
